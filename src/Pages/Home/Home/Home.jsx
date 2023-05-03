@@ -29,27 +29,26 @@ const Home = () => {
                     <div>
                         {
                             chefs.map(chef => <p
-                            key={chef.id}
-                            >  
-                            <Card>
-                            <Card.Img variant="top" src="holder.js/100px180" />
-                            <Card.Body>
-                            <Card.Title>{chef.name}</Card.Title>
-                            <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
-                            </Card.Body>
+                                key={chef.id}
+                            >
+                                <Card>
+                                    <Card.Img  className='img-fluid rounded' variant="top" src={chef.picture} />
+                                    <Card.Body className='text-center'>
+                                        <Card.Title className='fs-1'>{chef.name}</Card.Title>
+                                        <h5>Years of experience: {chef.years_of_experience}</h5>
+                                        <h5>Numbers of recipes: {chef.number_recipe}</h5>
+                                        <h5>Likes: {chef.likes}</h5>
+                                        
+                                        <Button variant="primary text-white fs-5">View Recipes</Button>
+                                    </Card.Body>
+                                </Card>
 
-                            </Card>
 
-
-                            </p>)  
+                            </p>)
                         }
-                    </div> 
+                    </div>
 
-                    
+
 
                 </div>
 

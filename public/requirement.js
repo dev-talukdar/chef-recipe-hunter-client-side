@@ -50,8 +50,7 @@ The password is less than 6 characters
 
 A user cannot submit empty email and password fields
 
-On the Homepage: There will be a banner section. You can make it a reasonable banner. That be text on one side, and picture in another side. Or it 
-could be text with background pictures. It could be a slider or a carousel. You can make it the way you want.
+ 
 
 The home page will have a Chef section with at least six cards. Each card will have the following information:
 
@@ -88,8 +87,7 @@ Use the Environment variable to hide the Firebase config keys.
 
 Add "active route" to indicate the route which you are visiting.
 
-Bonus------------------
-Minimum 12 meaningful git commits on the client-side repository and minimum of 5 meaningful commits on the server-side repository.
+Bonus------------------ 
 
  
 
