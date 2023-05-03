@@ -8,10 +8,27 @@ import img6 from '../../../assets/6.jpg'
 const LeftNav = () => {
     return (
         <div className='mt-5'>
+
             <div className='mt-5'>
             <img className='img-fluid' src={img6} alt="" />
-            <h4 className='text-center'>Carrot Calley Soup</h4>
+            <h4 className='text-center mt-3'>Carrot Calley Soup</h4>
            </div>
+
+           <div className='mt-5'>
+            <img className='img-fluid' src={img5} alt="" />
+            <h4 className='text-center mt-3'>Vegitable Burger</h4>
+           </div>
+
+           <div className='mt-5'>
+            <img className='img-fluid' src={img4} alt="" />
+            <h4 className='text-center mt-3'>Moist Cake</h4>
+           </div>
+
+           <div className='mt-5'>
+            <img className='img-fluid' src={img3} alt="" />
+            <h4 className='text-center mt-3'>Carrot Calley Soup</h4>
+           </div>
+
         </div>
     );
 };
