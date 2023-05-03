@@ -14,11 +14,11 @@ const Main = () => {
 <Container>
     <Row> 
 
-        <Col lg={8}>
+        <Col lg={9}>
              <Home></Home>
         </Col>
 
-        <Col lg={4}>
+        <Col lg={3}>
              <RightNav></RightNav>
         </Col>
     </Row>
