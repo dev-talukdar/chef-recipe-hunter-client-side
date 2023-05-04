@@ -21,14 +21,12 @@ with the Website name, Home, Blog and User profile picture. The user profile pic
 
 
 
-Make sure that the navbar and footer are present on all pages:
+ 
 
-When a user clicks on the login button, they will be redirected to the login page having the following:
 
-Email/Password
-Google Sign-in
-GitHub Sign-in
-A link that will redirect to the registration page
+  
+
+  
 The Registration page will have the Email/Password form having the following fields:
 
 Name
@@ -93,15 +91,9 @@ Bonus------------------
 
 Make your website home page mobile & desktop responsive (tablet responsive is optional)
 
-Create a blogs page route where you will have to answer the following questions
+ 
 
-Tell us the differences between uncontrolled and controlled components.
 
-How to validate React props using PropTypes
-
-Tell us the difference between nodejs and express js.
-
-What is a custom hook, and why will you create a custom hook?
 
 The Chef Recipe page will be a private/protected page. If you reload the protected/private route (after login), this page will not redirect the user to 
 the login page. Instead, it will keep the logged-in user on the protected route.

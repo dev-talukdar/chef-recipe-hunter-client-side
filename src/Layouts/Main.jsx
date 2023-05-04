@@ -5,27 +5,28 @@ import { Col, Container, Row } from 'react-bootstrap';
 import LeftNav from '../Pages/Shared/LeftNav/LeftNav';
 import RightNav from '../Pages/Shared/RightNav/RightNav';
 import Home from '../Pages/Home/Home/Home';
+import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     return (
         <div>
             <Header></Header>
 
-<Container>
-    <Row> 
+            <Container>
+                <Row>
 
-        <Col lg={9}>
-             <Home></Home>
-        </Col>
+                    <Col lg={8}>
+                         <Outlet></Outlet>
+                    </Col>
 
-        <Col lg={3}>
-             <RightNav></RightNav>
-        </Col>
-    </Row>
-</Container>
+                    <Col lg={4}>
+                        <RightNav></RightNav>
+                    </Col>
+                </Row>
+            </Container>
 
-<Footer></Footer>
-            
+            <Footer></Footer>
+
         </div>
     );
 };

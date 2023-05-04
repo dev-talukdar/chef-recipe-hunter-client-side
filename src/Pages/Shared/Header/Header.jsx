@@ -7,31 +7,27 @@ const Header = () => {
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Dish Delight</Navbar.Brand>
+                    <Navbar.Brand><Link className='text-decoration-none text-white' to={'/'}> Dish Delight</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Nav.Link href="#features">About us</Nav.Link>
-                            <Nav.Link to={'/blog'} >Blog</Nav.Link>
+                            <Nav.Link><Link className='text-decoration-none text-white' to={'/about-us'}> About Us</Link></Nav.Link>
+                            <Nav.Link ><Link className='text-decoration-none text-white' to={'/blog'}> Blog</Link></Nav.Link>
                             <NavDropdown title="Recipe" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.1">Trending</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">
-                                    Another action
+                                    Latest
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Favourite</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action/3.4">
-                                    Separated link
+                                    Sale
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Nav.Link >
-                               <Button>Login</Button>
-                            </Nav.Link>
-                            <Nav.Link >
-                                <Button>Registration</Button>
-                            </Nav.Link>
+                            <Nav.Link> <Button><Link className='text-decoration-none text-white'  to={'/login'}> Login</Link></Button></Nav.Link>
+                            {/* <Nav.Link > <Button><Link className='text-decoration-none text-white'  to={'/registration'}>Registration</Link></Button></Nav.Link> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
