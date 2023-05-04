@@ -18,14 +18,25 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
-                const loggedInUser = result.loggedInU
-                // console.log(loggedInUser)
+                const loggedInUser = result.user
+                console.log(loggedInUser)
                 setUser(loggedInUser)
 
                 .catch(error => {
-                    console.log('error', error.message)
+                    // console.log('error', error.message)
                 })               
             }) 
+    }
+
+    const handleGithubSignIn =() => {
+        signInWithPopup(auth, githubProvider)
+        .then(result => {
+            const loggedUser = result.loggedUser
+            setUser(loggedUser)
+        })
+        .catch(error => {
+            console.log( error)            
+        })
     }
 
     const handleGoogleSignOut =() => {
@@ -35,7 +46,7 @@ const Login = () => {
             setUser(null)
 
             .catch(error => {
-                console.log('error', error.message)
+                console.log( error)
             })
         })
         
@@ -90,8 +101,10 @@ const Login = () => {
                                          <img src={user.photoURL} alt="" />
                                         </div>}
 
-                                        <Button className="btn btn-primary btn-lg btn-block">Sign Out</Button>
-                                        {/* <Button className="btn btn-primary btn-lg btn-block"><FaGithub /> Continue with Github</Button> */}
+                                        <Button onClick={handleGoogleSignOut}>Sign Out</Button>
+
+                                       
+                                        <Button onClick={handleGithubSignIn} className="btn btn-primary btn-lg btn-block"><FaGithub /> Continue with Github</Button>
                                         <p className='mt-3'>New to this website ? <Link to={'/registration'}>Please Register</Link></p>
                                     </div>
 

@@ -5,40 +5,14 @@ Create a website that shows the recipes of all available chefs. The website must
      For example, if you give Chinese Chef and Chinese food recipes, it will only have Chinese Chef and Chinese food recipes. You cannot add recipes 
      from other countries—only one country chef and recipe.
 
-
-
-
 First, select the cuisine type. Google the site design or visit ThemeForest to get your website idea. However, your website cannot relate to your 
 previous assignments or any demo project displayed in the course or our conceptual sessions.
-
-
-
 
 
 with the Website name, Home, Blog and User profile picture. The user profile picture on the navbar is conditional. If the user is signed in, the navbar
  will show the profile picture; otherwise, it will show the Login button. If the user name is available, the user's name will be visible when the mouse
   hovers over the profile picture.
-
-
-
  
-
-
-  
-
-  
-The Registration page will have the Email/Password form having the following fields:
-
-Name
-
-Email
-
-Password
-
-Photo URL
-
-Note: Do not enforce the email verification method, as it will inconvenience the examiner. If you want, you can add email verification after receiving 
-the assignment result.
 
 On the Registration page, display errors when:
 
@@ -47,24 +21,6 @@ On the Registration page, display errors when:
 The password is less than 6 characters
 
 A user cannot submit empty email and password fields
-
- 
-
-The home page will have a Chef section with at least six cards. Each card will have the following information:
-
-Chef Picture
-
-Chef Name
-
-Years of experience
-
-Numbers of recipes
-
-Likes
-
-View Recipes Button
-
-Add at least two extra sections on the home page. Make sure the sections are meaningful for the website you are building.
 
 When a user clicks on a chef's View Recipes button, he/she will be redirected to the Chef Recipes page. The Chef Recipes page will have the following :
 
@@ -79,7 +35,7 @@ When clicking the Favorite button, show a toast message showing the recipe is yo
 
 Show a spinner when the data is in a loading state
 
-Create a 404 page. Add a picture on the 404 page.
+ 
 
 Use the Environment variable to hide the Firebase config keys.
 
