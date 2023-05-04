@@ -1,12 +1,8 @@
 `
 Main Requirements
-Create a website that shows the recipes of all available chefs. The website must be exclusively dedicated to one cuisine(Bangladeshi, Chinese, Indian,
-     Mediterranean, Thai, Japanese, Italian, African, Vietnamese, Srilankan, Nepalese, American, Korean, Mexican, Australian, Afgan, French, etc.). 
-     For example, if you give Chinese Chef and Chinese food recipes, it will only have Chinese Chef and Chinese food recipes. You cannot add recipes 
-     from other countries—only one country chef and recipe.
 
-First, select the cuisine type. Google the site design or visit ThemeForest to get your website idea. However, your website cannot relate to your 
-previous assignments or any demo project displayed in the course or our conceptual sessions.
+
+
 
 
 with the Website name, Home, Blog and User profile picture. The user profile picture on the navbar is conditional. If the user is signed in, the navbar

@@ -1,59 +1,35 @@
-import React, { useState } from 'react';
-import Header from '../Shared/Header/Header';
-import Footer from '../Shared/Footer/Footer';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
-import app from '../../firebase/firebase.config';
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import NavigationBar from "../Shared/NavigationBar/NavigationBar";
+import { Link } from "react-router-dom";
+import Footer from "../Shared/Footer/Footer";
 
+const Login = () => { 
 
+    const { customLogin } = useContext(AuthContext)
 
-const Login = () => {
-    const [user, setUser] = useState(null)
-    const auth = getAuth(app);
-    const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
+    const handleLogIn = (e) => {
+        e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.password.value; 
 
-    const handleGoogleSignIn = () => {
-        signInWithPopup(auth, googleProvider)
+        customLogin(email, password)
             .then(result => {
-                const loggedInUser = result.user
-                console.log(loggedInUser)
-                setUser(loggedInUser)
+                console.log(result)
 
-                .catch(error => {
-                    // console.log('error', error.message)
-                })               
-            }) 
-    }
-
-    const handleGithubSignIn =() => {
-        signInWithPopup(auth, githubProvider)
-        .then(result => {
-            const loggedUser = result.loggedUser
-            setUser(loggedUser)
-        })
-        .catch(error => {
-            console.log( error)            
-        })
-    }
-
-    const handleGoogleSignOut =() => {
-        signOut(auth)
-        .then(result => {
-            console.log(result);
-            setUser(null)
-
-            .catch(error => {
-                console.log( error)
             })
-        })
-        
+            .catch(error => {
+
+            })
+
+        console.log(email)
+
     }
+
+
     return (
         <div>
-            <Header></Header>
+            <NavigationBar></NavigationBar>
 
             <section className="vh-100 ">
                 <div className="container py-5 h-100">
@@ -64,48 +40,39 @@ const Login = () => {
                                     <h2>Please Log in </h2>
 
                                 </div>
-                                <form>
+                                <form onSubmit={handleLogIn}>
+                                    {/* Name input 
+                                    <div className="form-outline mb-4">
+                                        <input type="text" id="name" name='name' placeholder='Your Name' className="form-control form-control-lg" />
+                                        <label className="form-label" for="form1Example13">Full Name</label>
+                                    </div> */}
+
                                     {/* Email input  */}
                                     <div className="form-outline mb-4">
                                         <input type="email" id="email" name='email' placeholder='Your Email' className="form-control form-control-lg" />
-                                        <label className="form-label" htmlFor="form1Example13">Email address</label>
+                                        <label className="form-label" for="form1Example13">Email address</label>
                                     </div>
 
                                     {/* Password input  */}
                                     <div className="form-outline mb-4">
                                         <input type="password" id="password" name='password' placeholder='Your Password' className="form-control form-control-lg" />
-                                        <label className="form-label" htmlFor="form1Example23">Password</label>
+                                        <label className="form-label" for="form1Example23">Password</label>
                                     </div>
 
-                                    <div className="d-flex justify-content-around align-items-center mb-4">
-                                        {/* Checkbox   */}
-                                        <div className="form-check">
-                                            <input className="form-check-input" type="checkbox" value="" id="form1Example3" />
-                                            <label className="form-check-label" htmlFor="form1Example3"> Remember me </label>
-                                        </div>
-                                        <Link>Forgot password?</Link>
-                                    </div>
+                                    {/* Photo url input 
+                                    <div className="form-outline mb-4">
+                                        <input type="text" id="photoUrl" name='photoUrl' placeholder='Photo Url' className="form-control form-control-lg" />
+                                        <label className="form-label" for="form1Example23">Photo Url</label>
+                                    </div> */}
+
+
 
                                     {/* Submit button   */}
-                                    <button type="submit" className="btn btn-primary btn-lg btn-block align-items-center justify-content-center">Please Sign in</button>
+                                    <button type="submit" className="btn btn-primary btn-lg btn-block align-items-center justify-content-center">Login</button>
 
-                                    <div className="divider d-flex align-items-center my-4">
-                                        <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                                    </div>
+
                                     <div>
-                                        <Button onClick={handleGoogleSignIn} className="btn btn-primary btn-lg btn-block mb-3"><FaGoogle /> Continue with Google</Button>
-                                        
-                                        {user && <div>
-                                         <h3>User: {user.displayName} </h3>
-                                         <p>Email: {user.email}</p>
-                                         <img src={user.photoURL} alt="" />
-                                        </div>}
-
-                                        <Button onClick={handleGoogleSignOut}>Sign Out</Button>
-
-                                       
-                                        <Button onClick={handleGithubSignIn} className="btn btn-primary btn-lg btn-block"><FaGithub /> Continue with Github</Button>
-                                        <p className='mt-3'>New to this website ? <Link to={'/registration'}>Please Register</Link></p>
+                                        <p className='mt-3'>Have an existing ? <Link to={'/registration'}>Please Register</Link></p>
                                     </div>
 
                                 </form>

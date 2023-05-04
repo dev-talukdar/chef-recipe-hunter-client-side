@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import ChefDetails from "../Pages/ChefDetails/ChefDetails";
 
 const router = createBrowserRouter([
     {
@@ -18,9 +19,25 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
-            }            
+            },
+            {
+                path: '/chef/:id',
+                element: <ChefDetails></ChefDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/chefD/${params.id}`)
+            }           
         ]
     }, 
+    {
+        path: '/recipe',
+        element:  <RecipeDetail></RecipeDetail>,
+        children: [
+            {
+                path: '/recipe/:id',
+                element:  <Recipe></Recipe>
+            }
+        ]
+
+    },
     {
         path: '/blog',
         element: <Blog></Blog>
@@ -36,18 +53,8 @@ const router = createBrowserRouter([
     {
         path: '/about-us',
         element: <AboutUs></AboutUs>
-    },
-    {
-        path: '/recipe',
-        element:  <RecipeDetail></RecipeDetail>,
-        children: [
-            {
-                path: '/recipe/:id',
-                element:  <Recipe></Recipe>
-            }
-        ]
-
-    }  
+    }
+      
     
 ])
 

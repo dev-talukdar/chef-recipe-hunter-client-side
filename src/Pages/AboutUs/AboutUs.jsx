@@ -1,11 +1,11 @@
-import React from 'react';
-import Header from '../Shared/Header/Header';
+import React from 'react'; 
 import Footer from '../Shared/Footer/Footer';
+import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 
 const AboutUs = () => {
     return (
         <div>
-            <Header></Header>
+           <NavigationBar></NavigationBar>
             <div className='container text-center p-5'>
                 Welcome to Dish Delight! We are a team of passionate food lovers who are dedicated to bringing the world's best recipes to your plate. Our mission is to make it easy for you to enjoy the world's most famous and delicious dishes without leaving your home.
 

@@ -1,11 +1,11 @@
-import React from 'react';
-import Header from '../Shared/Header/Header';
+import React from 'react'; 
 import Footer from '../Shared/Footer/Footer';
+import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 
 const Blog = () => {
     return (
     <div>
-        <Header></Header>
+        <NavigationBar></NavigationBar>
         <div className='text-center mt-5 mb-5 container'>
             <h2 className='text-primary'>Answer Of 4 Questions:</h2>
             <h4>1. Tell us the differences between uncontrolled and controlled components.</h4>
