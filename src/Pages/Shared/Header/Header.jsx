@@ -1,8 +1,9 @@
-import React from 'react';
+import React from 'react'; 
 import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
+import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = () => { 
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -26,8 +27,11 @@ const Header = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
+                            <div className='d-flex'>
+                             <FaUserAlt style={{height: "50px"}} className='text-white fs-4'> </FaUserAlt>
+                             <h3></h3>
                             <Nav.Link> <Button><Link className='text-decoration-none text-white'  to={'/login'}> Login</Link></Button></Nav.Link>
-                            {/* <Nav.Link > <Button><Link className='text-decoration-none text-white'  to={'/registration'}>Registration</Link></Button></Nav.Link> */}
+                            </div> 
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

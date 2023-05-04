@@ -26,7 +26,7 @@ const Home = (chef) => {
                         <h1 style={{ fontSize: "65px" }} className='text-center mb-4 mb-md-0'>Cooking <br /> is <br /> like love </h1>
                     </div>
                     <div className='col-md-6 d-flex justify-content-center justify-content-md-end align-items-center'>
-                        <img className='img-fluid' style={{ width: "" }} src={bannerImg} alt="" />
+                        <img className='img-fluid' src={bannerImg} alt="" />
                     </div>
                 </div>
 
@@ -37,8 +37,8 @@ const Home = (chef) => {
                             chefs.map(chef => <p
                                 key={chef.id}
                             >
-                                <Card>
-                                    <Card.Img className='img-fluid rounded' variant="top" src={chef.picture} />
+                                <Card  >
+                                    <Card.Img className='img-fluid ' variant="top" src={chef.picture} />
                                     <Card.Body className='text-center'>
                                         <Card.Title className='fs-1'>{chef.name}</Card.Title>
                                         <p>{chef.years_of_experience} Years of experience</p>
