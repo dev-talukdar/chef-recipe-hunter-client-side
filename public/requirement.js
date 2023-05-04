@@ -25,16 +25,15 @@ When a user clicks on a chef's View Recipes button, he/she will be redirected to
 
 Think about a section displaying the information of the selected chef's recipes in a tabular form or in a card group.
 
-Each recipe info should contain the recipe name, ingredients (at least 5), cooking method, rating, and a Favorite button. Show at least 3 recipes. for
- each chef. If needed, you can have duplicate recipes for each chef
+ 
 
-When clicking the Favorite button, show a toast message showing the recipe is your favorite and disable the button.
+When clicking the Favorite button, show a toast message showing the recipe is your favorite and disable the button. -- partially done
 
 Show a spinner when the data is in a loading state
 
  
 
-Use the Environment variable to hide the Firebase config keys.
+ 
 
 Add "active route" to indicate the route which you are visiting.
 
@@ -52,7 +51,5 @@ FUN: The blog page, Create a heading and add an icon/ button. When you click on 
     give you some fun. Try out this after completing all of your tasks. Hint: Explore react-to-pdf package). Your pdf should contain some information
      about the blog page.
 
-Make sure your site looks reasonable. The design and color selection is meaningful.
 
-Clean and organized Code (folder structure). Organize components with meaningful names, and add comments when needed.
 `

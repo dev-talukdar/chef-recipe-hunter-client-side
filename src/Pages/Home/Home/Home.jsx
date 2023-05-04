@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, CardGroup, Container } from 'react-bootstrap';
-import bannerImg from '../../../assets/bannerImg.png'
 import { Link } from 'react-router-dom';
+import banner from '../../../assets/banner.jpg'
 
-const Home = (chef) => { 
+const Home = (chef) => {
+
+
     const { id, title, details, image_url, thumbnail_url, author, total_view, rating } = chef;
     const [chefs, setChefs] = useState([]);
     const [ShowAll, setShowAll] = useState(false);
     const handleShowAll = () => {
-		setShowAll(true);
-	};
+        setShowAll(true);
+    };
 
     useEffect(() => {
         fetch('https://chef-recipe-hunter-server-side-dev-talukdar.vercel.app/chef')
@@ -18,57 +20,79 @@ const Home = (chef) => {
             .catch(error => console.error(error))
     }, [])
 
+    const [showAllChefs, setShowAllChefs] = useState(false);
+
+    // Define a function to toggle the showAllChefs state variable
+    const handleShowAllChefsToggle = () => {
+        setShowAllChefs(!showAllChefs);
+    };
+
     return (
-        <Container className='mt-5'>
-            <div className="container">
-                <div className='row'>
-                    <div className='col-md-6'>
-                        <h1 style={{ fontSize: "65px" }} className='text-center mb-4 mb-md-0'>Cooking <br /> is <br /> like love </h1>
-                    </div>
-                    <div className='col-md-6 d-flex justify-content-center justify-content-md-end align-items-center'>
-                        <img className='img-fluid' src={bannerImg} alt="" />
-                    </div>
-                </div>
+        <div className="mt-5">
+            <div className="d-flex align-items-center justify-content-center h-100 mb-5">
+  <div className="container-fluid banner" style={{backgroundImage: `url(${banner})`, height: '400px', backgroundSize: 'cover'}}>
+    <div className="d-flex flex-column justify-content-center align-items-start  h-100">
+      <p className='lh-1 fs-2 text-dark fw-bold'>Cooking is like love It  <br />should be entered into <br />with abandon or not at all</p>
+      <div className="text-start">
+      <button type="button" class="btn btn-outline-dark fw-bold">Let's Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-                <div className=' d-flex mt-5 gap-4'>
+            <div>
+                {chefs.slice(0, ShowAll ? chefs.length : 6).map((chef) => (
+                    <p key={chef.id}>
+                        <Card bg='light mb-5' text='dark'>
+                            <Card.Img variant="top" src={chef.picture} />
+                            <Card.Body className='px-4'>
+                                <Card.Title className='fs-1 mb-4'>{chef.name}</Card.Title>
+                                <div className='d-flex justify-content-between mb-4'>
+                                    <div>
+                                        <p className='m-0'>{chef.years_of_experience} Years of experience</p>
+                                        <p className='m-0'>Numbers of recipes: {chef.number_recipe}</p>
+                                    </div>
+                                    <div>
+                                        <p className='m-0'>Likes: {chef.likes}</p>
+                                    </div>
+                                </div>
+                                <Button variant="primary" className='w-100 fs-5'>
+                                    <Link className='text-decoration-none text-white' to={`/chef/${chef.id}`}>View Recipes</Link>
+                                </Button>
+                            </Card.Body>
+                        </Card>
 
-                    <div>
-                        {
-                            chefs.map(chef => <p
-                                key={chef.id}
-                            >
-                                <Card  >
-                                    <Card.Img className='img-fluid ' variant="top" src={chef.picture} />
-                                    <Card.Body className='text-center'>
-                                        <Card.Title className='fs-1'>{chef.name}</Card.Title>
-                                        <p>{chef.years_of_experience} Years of experience</p>
-                                        <p>Numbers of recipes: {chef.number_recipe}</p>
-                                        <p>Likes: {chef.likes}</p>
-                                        <Button variant="primary text-white fs-5"><Link className='text-decoration-none text-white' to={`/chef/${chef.id}`}>View Recipes</Link></Button>
-                                    </Card.Body>
-                                </Card>
-                            </p>)
-                        }
-                    </div>   
-                    {chefs.slice(0, ShowAll ? 9 : 6).map((chef) => (
-					<chef key={chef.id} 
-                    chef={chef}></chef>
-				))}                 
-                </div>
-                
+                    </p>
+                ))}
             </div>
-            {!ShowAll && (
-				<span
-					onClick={handleShowAll}
-					
-				>
-                    <div className=" mt-5 mb-5 text-center"> 
-					<Button variant="primary" className='primary text-white fs-5'>See All Recipe</Button>
-                    </div>
-				</span>
-			)}
-        </Container>
+            <Button variant="info" className='w-100 fs-5 mb-5 text-white fw-bold' onClick={() => setShowAll(!ShowAll)}>
+                {ShowAll ? "Show Less Chefs" : "Show All Chefs"}
+            </Button>
+            {showAllChefs && (
+                <>
+                    {chefs.slice(6, 9).map((chef) => (
+                        <Card key={chef.id}>
+                            <Card.Img className="img-fluid" variant="top" src={chef.picture} />
+                            <Card.Body className="text-center">
+                                <Card.Title className="fs-1">{chef.name}</Card.Title>
+                                <p>{chef.years_of_experience} Years of experience</p>
+                                <p>Numbers of recipes: {chef.number_recipe}</p>
+                                <p>Likes: {chef.likes}</p>
+                                <Button variant="primary text-white fs-5">
+                                    <Link className="text-decoration-none text-white" to={`/chef/${chef.id}`}>
+                                        View Recipes
+                                    </Link>
+                                </Button>
+                            </Card.Body>
+                        </Card>
+                    ))}
+                    <Button variant="primary text-white fs-5" onClick={handleShowAllChefsToggle}>
+                        Hide Chefs
+                    </Button>
+                </>
+            )}
+        </div>
     );
-};
+}
 
 export default Home;

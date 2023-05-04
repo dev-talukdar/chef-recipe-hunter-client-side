@@ -23,26 +23,49 @@ const RightNav = () => {
             <div>
                 <img className='img-fluid' src={webshop} alt="" />
                 <br />
-                <h4 className='mt-4'>Latest Recipe</h4>
+                <h4 className='mt-4 mb-5'>Latest Recipe</h4>
 
-                <div className='d-flex gap-3 mb-4'>
-                    <img className='img-fluid' style={{ width: "150px" }} src={img1} alt="" />
+                <div className='text-center'>
+                    <img className='img-fluid' src={img1} alt="" />
                     <div className=' '>
-                        <p className='fs-5 text-center'>Crispy choco croissants</p>
-                        <p className='fs-6 text-center'>September 21, 2021</p>
+                        <p className='fw-semibold lh-1 mt-3 mb-5 '>Bakalva <br />September 21, 2021</p>
                     </div>
-                     
                 </div>
 
-                <div className='d-flex gap-3 mb-4'>
-                    <img className='img-fluid' style={{ width: "150px" }} src={img2} alt="" />
+                <div className='text-center'>
+                    <img className='img-fluid' src={img2} alt="" />
                     <div className=' '>
-                        <p className='fs-5 text-center'>Celery soup with carrot </p>
-                        <p className='fs-6 text-center'>September 21, 2021</p>
+                        <p className='fw-semibold lh-1 mt-3 '>Moist Cake <br /> September 21, 2021 </p>
                     </div>
-                     
                 </div>
 
+                <div className='text-center'>
+                    <img className='img-fluid' src={img3} alt="" />
+                    <div className=' '>
+                        <p className='fw-semibold lh-1 mt-3 '>Vegitable Burger <br /> September 21, 2021 </p>
+                    </div>
+                </div>
+
+                <div className='text-center'>
+                    <img className='img-fluid' src={img4} alt="" />
+                    <div className=' '>
+                        <p className='fw-semibold lh-1 mt-3 '>Celery soup with carrot <br /> September 21, 2021 </p>
+                    </div>
+                </div>
+
+                <div className='text-center'>
+                    <img className='img-fluid' src={img5} alt="" />
+                    <div className=' '>
+                        <p className='fw-semibold lh-1 mt-3 '>Celery soup with carrot <br /> September 21, 2021 </p>
+                    </div>
+                </div>
+
+                <div className='text-center'>
+                    <img className='img-fluid' src={img6} alt="" />
+                    <div className=' '>
+                        <p className='fw-semibold lh-1 mt-3 '>Celery soup with carrot <br /> September 21, 2021 </p>
+                    </div>
+                </div>
             </div>
         </div>
     );
