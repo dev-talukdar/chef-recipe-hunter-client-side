@@ -3,8 +3,38 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import { Link } from "react-router-dom";
 import Footer from "../Shared/Footer/Footer";
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 const Login = () => { 
+
+    const auth = getAuth(app)
+    const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider()
+
+    const handleGoogleSignIn = () => {
+        signInWithPopup(auth, googleProvider)
+        .then(result => {
+            const user = result.user
+            console.log(user)
+        })
+        .catch(error => {
+            console.log('error', error.message)
+        })
+    }
+
+    const handleGithubSignIn = () => {
+        signInWithPopup(auth, githubProvider)
+        .then(result => {
+            const user = result.user
+            console.log(user)
+        })
+        .catch(error => {
+            console.log('error', error.message)
+        })
+
+    }
 
     const { customLogin } = useContext(AuthContext)
 
@@ -41,11 +71,7 @@ const Login = () => {
 
                                 </div>
                                 <form onSubmit={handleLogIn}>
-                                    {/* Name input 
-                                    <div className="form-outline mb-4">
-                                        <input type="text" id="name" name='name' placeholder='Your Name' className="form-control form-control-lg" />
-                                        <label className="form-label" for="form1Example13">Full Name</label>
-                                    </div> */}
+                                    
 
                                     {/* Email input  */}
                                     <div className="form-outline mb-4">
@@ -57,18 +83,17 @@ const Login = () => {
                                     <div className="form-outline mb-4">
                                         <input type="password" id="password" name='password' placeholder='Your Password' className="form-control form-control-lg" />
                                         <label className="form-label" for="form1Example23">Password</label>
-                                    </div>
-
-                                    {/* Photo url input 
-                                    <div className="form-outline mb-4">
-                                        <input type="text" id="photoUrl" name='photoUrl' placeholder='Photo Url' className="form-control form-control-lg" />
-                                        <label className="form-label" for="form1Example23">Photo Url</label>
-                                    </div> */}
+                                    </div>   
 
 
 
                                     {/* Submit button   */}
-                                    <button type="submit" className="btn btn-primary btn-lg btn-block align-items-center justify-content-center">Login</button>
+                                    <button type="submit" className="btn btn-primary btn-lg btn-block align-items-center justify-content-center mb-3">Login</button>
+
+                                    <div>
+                                    <button onClick={handleGoogleSignIn} type="submit" className="btn btn-primary btn-lg btn-block align-items-center justify-content-center mb-3"><FaGoogle></FaGoogle> Continue with Google</button>
+                                    <button onClick={handleGithubSignIn} type="submit" className="btn btn-primary btn-lg btn-block align-items-center justify-content-center mb-3"><FaGithub></FaGithub>Continue with Github</button>
+                                    </div>
 
 
                                     <div>
