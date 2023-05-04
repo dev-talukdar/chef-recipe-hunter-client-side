@@ -43,13 +43,6 @@ Add "active route" to indicate the route which you are visiting.
 
 Bonus------------------ 
 
- 
-
-Make your website home page mobile & desktop responsive (tablet responsive is optional)
-
- 
-
-
 
 The Chef Recipe page will be a private/protected page. If you reload the protected/private route (after login), this page will not redirect the user to 
 the login page. Instead, it will keep the logged-in user on the protected route.

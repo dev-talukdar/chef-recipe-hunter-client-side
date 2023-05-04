@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 
-const Recipe = (recipe) => {
-    const { id, title, details, image, thumbnail_url, author, total_view, rating } = recipe;
+const Recipe = ( ) => { 
+
+    const [recipe, setRecipe] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/recipe')
+        fetch('https://chef-recipe-hunter-server-side-dev-talukdar.vercel.app/recipe')
             .then(res => res.json())
-            .then(data => setChefs(data))
+            .then(data => setRecipe(data))
             .catch(error => console.error(error))
     }, [])
+    console.log(recipe)
 
     return (
         <div>
             <Card>
-                 <Card.Img className='img-fluid rounded' variant="top" src={recipe.image} />
+                 <Card.Img className='img-fluid rounded' variant="top"  />
                 <Card.Body>
                     <Card.Title></Card.Title>
                     <Button></Button>

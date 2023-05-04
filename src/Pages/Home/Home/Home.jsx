@@ -44,7 +44,7 @@ const Home = (chef) => {
                                         <p>{chef.years_of_experience} Years of experience</p>
                                         <p>Numbers of recipes: {chef.number_recipe}</p>
                                         <p>Likes: {chef.likes}</p>
-                                        <Button variant="primary text-white fs-5"><Link className='text-decoration-none text-white' to={`/chef/${id}`}>View Recipes</Link></Button>
+                                        <Button variant="primary text-white fs-5"><Link className='text-decoration-none text-white' to={`/chef/${chef.id}`}>View Recipes</Link></Button>
                                     </Card.Body>
                                 </Card>
                             </p>)
