@@ -31,7 +31,7 @@ const Login = () => {
         <div>
             <NavigationBar></NavigationBar>
 
-            <section className="vh-100 ">
+            <section className="vh-100 border border-warning border-1 mb-5 rounded bg-light mt-5 px-5 ">
                 <div className="container py-5 h-100">
                     <div className="row d-flex align-items-center justify-content-center h-100 ">
                         <div className="col-md-8 col-lg-7 col-xl-6 ">
@@ -72,7 +72,7 @@ const Login = () => {
 
 
                                     <div>
-                                        <p className='mt-3'>Have an existing ? <Link to={'/registration'}>Please Register</Link></p>
+                                        <p className='mt-3'>New to this website? <Link to={'/registration'}>Please Register</Link></p>
                                     </div>
 
                                 </form>

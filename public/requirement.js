@@ -18,9 +18,10 @@ The password is less than 6 characters
 
 A user cannot submit empty email and password fields
 
+
 When a user clicks on a chef's View Recipes button, he/she will be redirected to the Chef Recipes page. The Chef Recipes page will have the following :
 
-Banner - chef picture, chef name, a short bio/description, likes, number of recipes, and years of experience.
+ 
 
 Think about a section displaying the information of the selected chef's recipes in a tabular form or in a card group.
 
