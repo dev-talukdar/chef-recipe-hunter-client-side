@@ -6,6 +6,7 @@ import Footer from "../Shared/Footer/Footer";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
+import { Button, Form } from "react-bootstrap";
 
 const Login = () => { 
 
@@ -61,51 +62,53 @@ const Login = () => {
         <div>
             <NavigationBar></NavigationBar>
 
-            <section className="vh-100 border border-warning border-1 mb-5 rounded bg-light mt-5 px-5 ">
-                <div className="container py-5 h-100">
-                    <div className="row d-flex align-items-center justify-content-center h-100 ">
-                        <div className="col-md-8 col-lg-7 col-xl-6 ">
-                            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
-                                <div className=''>
-                                    <h2>Please Log in </h2>
+            <div className="container-fluid bg-light">
+      <div className="row justify-content-center align-items-center min-vh-100">
+        <div className="col-md-6 col-lg-4">
+          <div className="card shadow-sm">
+            <div className="card-body">
+              <h3 className="card-title text-center">Log In</h3>
+              <Form onSubmit={handleLogIn}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control  type="email" id="email" name='email' placeholder="Enter email" required />
+                </Form.Group>
 
-                                </div>
-                                <form onSubmit={handleLogIn}>
-                                    
+                <Form.Group className="mb-3">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password" id="password" name='password'required />
+                </Form.Group>
 
-                                    {/* Email input  */}
-                                    <div className="form-outline mb-4">
-                                        <input type="email" id="email" name='email' placeholder='Your Email' className="form-control form-control-lg" />
-                                        <label className="form-label" for="form1Example13">Email address</label>
-                                    </div>
-
-                                    {/* Password input  */}
-                                    <div className="form-outline mb-4">
-                                        <input type="password" id="password" name='password' placeholder='Your Password' className="form-control form-control-lg" />
-                                        <label className="form-label" for="form1Example23">Password</label>
-                                    </div>   
-
-
-
-                                    {/* Submit button   */}
-                                    <button type="submit" className="btn btn-primary btn-lg btn-block align-items-center justify-content-center mb-3">Login</button>
-
-                                    <div>
-                                    <button onClick={handleGoogleSignIn} type="submit" className="btn btn-primary btn-lg btn-block align-items-center justify-content-center mb-3"><FaGoogle></FaGoogle> Continue with Google</button>
-                                    <button onClick={handleGithubSignIn} type="submit" className="btn btn-primary btn-lg btn-block align-items-center justify-content-center mb-3"><FaGithub></FaGithub>Continue with Github</button>
-                                    </div>
-
-
-                                    <div>
-                                        <p className='mt-3'>New to this website? <Link to={'/registration'}>Please Register</Link></p>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <Form.Check type="checkbox" label="Remember me" />
+                  <a href="/">Forgot password?</a>
                 </div>
-            </section>
+
+                <Button variant="primary" type="submit" className="w-100 mb-3">
+                  Log In
+                </Button>
+              </Form>
+
+              <div className="text-center mb-3">
+                <span>Don't have an account? </span>
+                <Link to={'/registration'}>Please Register</Link>
+              </div>
+
+              <hr />
+
+              <div className="d-grid gap-2">
+                <Button onClick={handleGoogleSignIn} variant="outline-primary"><FaGoogle className="me-2"></FaGoogle>
+                  Continue with Google
+                </Button>
+                <Button onClick={handleGithubSignIn} variant="outline-dark"><FaGithub className="me-2"></FaGithub>
+                  Continue with Github
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
             <Footer></Footer>
         </div>

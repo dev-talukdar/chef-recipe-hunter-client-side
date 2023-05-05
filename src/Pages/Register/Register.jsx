@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import Header from '../Shared/Header/Header';
+import React, { useContext } from 'react'; 
 import Footer from '../Shared/Footer/Footer';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
+import { Button, Form } from "react-bootstrap"; 
 
 const Register = () => {
 
@@ -38,56 +38,48 @@ const Register = () => {
     return (
         <div>
             <NavigationBar></NavigationBar>
-            <section className=" border border-warning border-1 mb-5 rounded bg-light mt-5 px-5">
-                <div className="container py-5 h-100">
-                    <div className="row d-flex align-items-center justify-content-center h-100 ">
-                        <div className="col-md-8 col-lg-7 col-xl-6 ">
-                            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
-                                <div className=''>
-                                    <h2>Please Sign Up </h2>
 
-                                </div>
-                                <form onSubmit={handleRegister}>
-                                    Name input 
-                                    <div className="form-outline mb-4">
-                                        <input type="text" id="name" name='name' placeholder='Your Name' className="form-control form-control-lg" />
-                                        <label className="form-label" for="form1Example13">Full Name</label>
-                                    </div>
+            <div className="container-fluid bg-light">
+      <div className="row justify-content-center align-items-center min-vh-100">
+        <div className="col-md-6 col-lg-4">
+          <div className="card shadow-sm">
+            <div className="card-body">
+              <h3 className="card-title text-center">Log In</h3>
+              <Form onSubmit={handleRegister}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Full Name</Form.Label>
+                  <Form.Control  type="text" id="name" name='name' placeholder="Enter Your Name" required />
+                </Form.Group>
 
-                                    {/* Email input  */}
-                                    <div className="form-outline mb-4">
-                                        <input type="email" id="email" name='email' placeholder='Your Email' className="form-control form-control-lg" />
-                                        <label className="form-label" for="form1Example13">Email address</label>
-                                    </div>
+                <Form.Group className="mb-3">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control  type="email" id="email" name='email' placeholder="Enter Email" required />
+                </Form.Group>
 
-                                    {/* Password input  */}
-                                    <div className="form-outline mb-4">
-                                        <input type="password" id="password" name='password' placeholder='Your Password' className="form-control form-control-lg" />
-                                        <label className="form-label" for="form1Example23">Password</label>
-                                    </div>
+                <Form.Group className="mb-3">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password" id="password" name='password' placeholder="Enter Password" required />
+                </Form.Group> 
 
-                                    Photo url input 
-                                    <div className="form-outline mb-4">
-                                        <input type="text" id="photoUrl" name='photoUrl' placeholder='Photo Url' className="form-control form-control-lg" />
-                                        <label className="form-label" for="form1Example23">Photo Url</label>
-                                    </div>
+                <Form.Group className="mb-3">
+                  <Form.Label>Photo Url</Form.Label>
+                  <Form.Control  type="text" id="photoUrl" name='photoUrl' placeholder="Photo URL" required />
+                </Form.Group>
 
+                <Button variant="primary" type="submit" className="w-100 mb-3">
+                  Register
+                </Button>
+              </Form>
 
-
-                                    {/* Submit button   */}
-                                    <button type="submit" className="btn btn-primary btn-lg btn-block align-items-center justify-content-center">Register</button>
-
-
-                                    <div>
-                                        <p className='mt-3'>Have an existing Account? <Link to={'/login'}>Please Login</Link></p>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+              <div className="text-center mb-3">
+                <span>Have an existing account? </span>
+                <Link to={'/login'}>Please Login</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
             <Footer></Footer>
