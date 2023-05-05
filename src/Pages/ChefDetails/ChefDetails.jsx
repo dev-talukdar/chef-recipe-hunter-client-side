@@ -4,6 +4,8 @@ import { FaHeart, FaThumbsUp } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NavigationBar from '../Shared/NavigationBar/NavigationBar';
+import Footer from '../Shared/Footer/Footer';
 
 const ChefDetails = () => {
 
@@ -27,6 +29,7 @@ const ChefDetails = () => {
 
     return (
         <div>
+            <NavigationBar></NavigationBar>
             <div className='border border-secondary border-1 mb-5 rounded bg-light mt-5'>
                 <img className='img-fluid' src={picture} alt="" />
                 <h4 className='text-center mt-5 ' >  {name}  </h4>
@@ -91,7 +94,7 @@ const ChefDetails = () => {
             </div>
 
 
-
+<Footer></Footer>
         </div>
     );
 };

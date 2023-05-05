@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { Button, Form } from "react-bootstrap";
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
   const { customRegister } = useContext(AuthContext)
@@ -21,7 +22,7 @@ const Register = () => {
     const photoUrl = e.target.photoUrl.value;
 
     // validation  
-    
+
     if(!/(?=.*[A-Z])/.test(password)){
       setRegisterError('Please use at least one capital letter');
       return;
@@ -35,13 +36,14 @@ const Register = () => {
       return;
     }
 
-
-
     customRegister(email, password, name, photoUrl)
       .then(result => {
+        const loggedUser = result.user
+        console.log(loggedUser)
         setRegisterError('')
         e.target.reset();
         setSuccess('Thank you for registration, please Log in now')
+        updateUserData(result.user, name)
 
       })
       .catch(error => {
@@ -49,9 +51,19 @@ const Register = () => {
         setRegisterError(error.message)
 
 
-      })
+      }) 
 
-    console.log(email)
+      const updateUserData = (user, name) => {
+        updateProfile(user, {
+          displayName: name
+        })
+        .then(() => {
+          console.log('user name updated')
+        })
+        .catch(error => {
+          setRegisterError(error.message)
+        })
+      }
 
   }
 

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Shared/Footer/Footer";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
@@ -9,6 +9,8 @@ import app from "../../firebase/firebase.config";
 import { Button, Form } from "react-bootstrap";
 
 const Login = () => {
+  const navigate = useNavigate()
+
   const [loginError, setLoginError] = useState('')
   const [loginSuccess, setLoginSuccess] = useState('')
 
@@ -22,6 +24,7 @@ const Login = () => {
       .then(result => {
         const user = result.user
         console.log(user)
+        navigate('/')
       })
       .catch(error => {
         console.log('error', error.message)
@@ -33,6 +36,7 @@ const Login = () => {
       .then(result => {
         const user = result.user
         console.log(user)
+        navigate('/')
       })
       .catch(error => {
         console.log('error', error.message)
@@ -44,6 +48,10 @@ const Login = () => {
 
   const handleLogIn = (e) => {
     e.preventDefault()
+
+    setLoginSuccess('')
+    setLoginError('')
+
     const email = e.target.email.value;
     const password = e.target.password.value;
 
@@ -52,11 +60,13 @@ const Login = () => {
         console.log(result)
         e.target.reset();
         setLoginSuccess('You have logged in successfully')
-        setLoginError('')
+        navigate('/')
+        
 
       })
       .catch(error => {
         console.log('error', error.message)
+        setLoginError(error.message)
 
       })
 
@@ -98,6 +108,7 @@ const Login = () => {
 
                 <div className='text-center'> 
                     <p><small className='text-success '>{loginSuccess}</small></p>
+                    <p><small className='text-danger '>{loginError}</small></p>
                   </div>
 
                 <div className="text-center mb-3">

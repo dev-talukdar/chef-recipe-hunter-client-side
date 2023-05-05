@@ -9,6 +9,7 @@ import Register from "../Pages/Register/Register";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import ChefDetails from "../Pages/ChefDetails/ChefDetails"; 
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -19,14 +20,9 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
-            },
-            {
-                path: '/chef/:id',
-                element: <ChefDetails></ChefDetails>,
-                loader: ({params}) => fetch(`https://chef-recipe-hunter-server-side-dev-talukdar.vercel.app/chefD/${params.id}`)
-            }           
+            },                      
         ]
-    }, 
+    },     
     {
         path: '/recipe',
         element:  <RecipeDetail></RecipeDetail>,
@@ -34,10 +30,12 @@ const router = createBrowserRouter([
             {
                 path: '/recipe/:id',
                 element:  <Recipe></Recipe>
-            }
+            },
+           
         ]
 
-    },
+    }, 
+     
     {
         path: '/blog',
         element: <Blog></Blog>
@@ -53,7 +51,13 @@ const router = createBrowserRouter([
     {
         path: '/about-us',
         element: <AboutUs></AboutUs>
+    },
+    {
+        path: '/chef/:id',
+        element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
+        loader: ({params}) => fetch(`https://chef-recipe-hunter-server-side-dev-talukdar.vercel.app/chefD/${params.id}`)
     }
+    
     
       
     

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card} from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 
@@ -28,12 +29,15 @@ const Home = (chef) => {
     };
 
     return (
-        <div className="mt-5"> 
+        <div className="mt-5">
             <div>
                 {chefs.slice(0, ShowAll ? chefs.length : 6).map((chef) => (
                     <p key={chef.id}>
                         <Card bg='light mb-5' text='dark'>
+                            <LazyLoad height={620} threshold={0.95}> 
                             <Card.Img variant="top" src={chef.picture} />
+                            </LazyLoad>
+                            
                             <Card.Body className='px-4'>
                                 <Card.Title className='fs-1 mb-4'>{chef.name}</Card.Title>
                                 <div className='d-flex justify-content-between mb-4'>
