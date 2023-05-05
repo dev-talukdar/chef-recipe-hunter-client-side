@@ -33,7 +33,7 @@ const NavigationBar = () => {
                                     <Nav.Link> <NavLink
                                         to="/about-us"
                                         className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-warning text-decoration-none" : "text-decoration-none text-white"
+                                            isPending ? "pending" : isActive ? "text-warning text-decoration-none" : "text-decoration-none text-white me-3"
                                         }
                                     >
                                         About Us
@@ -64,7 +64,7 @@ const NavigationBar = () => {
                                     {/* {user && <Nav.Link><span className='text-white' title='Talukdar'><FaUserAlt style={{ height: "50px" }} className='text-white fs-4'></FaUserAlt></span> </Nav.Link>} */}
                                      
                                         {user && <div title={user.displayName}>
-                                        <img style={{ height: "50px", width: "50px" }} src={user.photoURL} alt="" />
+                                        <img style={{ height: "50px", width: "50px" }} src={user.photoURL} alt=""  />
                                             </div>}
 
                                     <Nav.Link>

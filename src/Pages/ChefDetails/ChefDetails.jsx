@@ -30,7 +30,7 @@ const ChefDetails = () => {
     return (
         <div>
             <NavigationBar></NavigationBar>
-            <div className='border border-secondary border-1 mb-5 rounded bg-light mt-5'>
+            <div className='border border-secondary border-1 mb-5 rounded bg-light mt-5 container'>
                 <img className='img-fluid' src={picture} alt="" />
                 <h4 className='text-center mt-5 ' >  {name}  </h4>
                 <h4 className='text-center ' >Number of Recipe: {number_recipe}</h4>

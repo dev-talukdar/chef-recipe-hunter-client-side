@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../Shared/Footer/Footer';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import Pdf from "react-to-pdf";
+import { Button } from 'react-bootstrap';
 
 const ref = React.createRef();
 
@@ -10,15 +11,20 @@ const Blog = () => {
         <div>
             <NavigationBar></NavigationBar>
 
-            <Pdf targetRef={ref} filename="code-example.pdf">
-                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
-            </Pdf>
+
 
             <div ref={ref} className='text-center mt-5 mb-5 container'>
 
+                <div className='mb-5'>
+                    <h2 className='text-dark mb-5 mt-5'>Download Your PDF here </h2>
+                    <Pdf targetRef={ref} filename="code-example.pdf">
+                        {({ toPdf }) => <Button variant="outline-dark"  size="lg" className='fw-bold' onClick={toPdf}>Generate PDF</Button>}
+                    </Pdf>
+                </div>
 
 
-                <h2 className='text-primary'>Answer Of 4 Questions:</h2>
+
+                <h2 className='text-primary mt-5'>Answer Of 4 Questions:</h2>
                 <h4>1. Tell us the differences between uncontrolled and controlled components.</h4>
                 <br />
                 <p className='text-info'>Answer: Uncontrolled components are those where the form data is handled by the DOM itself, without any intervention by React. In other words, the form fields are controlled by the DOM rather than React. In uncontrolled components, we use the ref attribute to get the value of the form elements. The ref attribute is used to access the DOM element in the code.

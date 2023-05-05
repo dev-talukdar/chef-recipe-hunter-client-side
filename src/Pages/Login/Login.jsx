@@ -93,7 +93,7 @@ const Login = () => {
 
                   <Form.Group className="mb-3">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" id="password" name='password' required />
+                    <Form.Control type="password" id="password" name='password' placeholder="Enter password" required />
                   </Form.Group>
 
                   <div className="d-flex justify-content-between align-items-center mb-3">

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { FaThumbsUp } from 'react-icons/fa';
 import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
@@ -46,7 +47,7 @@ const Home = (chef) => {
                                         <p className='m-0'>Numbers of recipes: {chef.number_recipe}</p>
                                     </div>
                                     <div>
-                                        <p className='m-0'>Likes: {chef.likes}</p>
+                                        <p className='m-0'><FaThumbsUp></FaThumbsUp>{chef.likes}</p>
                                     </div>
                                 </div>
                                 <Button variant="primary" className='w-100 fs-5'>
