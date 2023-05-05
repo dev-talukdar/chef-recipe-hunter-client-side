@@ -1,6 +1,8 @@
 `
 Main Requirements
 
+ 
+
 
 
 
@@ -16,7 +18,7 @@ On the Registration page, display errors when:
 
 The password is less than 6 characters
 
-A user cannot submit empty email and password fields
+
 
 
 When a user clicks on a chef's View Recipes button, he/she will be redirected to the Chef Recipes page. The Chef Recipes page will have the following :
