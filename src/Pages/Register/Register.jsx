@@ -3,11 +3,14 @@ import Footer from '../Shared/Footer/Footer';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
-import { Button, Form } from "react-bootstrap";
-import { updateProfile } from 'firebase/auth';
+import { Button, Form } from "react-bootstrap"; 
+import { getAuth,updateProfile,} from "firebase/auth";
+import app from '../../firebase/firebase.config';
+const auth = getAuth(app);
 
 const Register = () => {
-  const { customRegister } = useContext(AuthContext)
+  
+  const { customRegister} = useContext(AuthContext)
   const [registerError, setRegisterError] = useState(' ')
   const [success, setSuccess] = useState('')
 
@@ -23,15 +26,15 @@ const Register = () => {
 
     // validation  
 
-    if(!/(?=.*[A-Z])/.test(password)){
+    if (!/(?=.*[A-Z])/.test(password)) {
       setRegisterError('Please use at least one capital letter');
       return;
     }
-    else if(!/(?=.*[0-9])/.test(password)){
+    else if (!/(?=.*[0-9])/.test(password)) {
       setRegisterError('Please use at least one number');
       return;
     }
-    else if(password.length < 6){
+    else if (password.length < 6) {
       setRegisterError('Please use at least 6 character to set your password');
       return;
     }
@@ -43,7 +46,17 @@ const Register = () => {
         setRegisterError('')
         e.target.reset();
         setSuccess('Thank you for registration, please Log in now')
-        updateUserData(result.user, name)
+        // updateUserData(result.user, name)
+
+        updateProfile(auth.currentUser, {
+          displayName: name, photoURL: photoUrl
+        }).then(() => {
+          // Profile updated!
+          // ...
+        }).catch((error) => {
+          // An error occurred
+          // ...
+        });
 
       })
       .catch(error => {
@@ -51,19 +64,19 @@ const Register = () => {
         setRegisterError(error.message)
 
 
-      }) 
+      })
 
-      const updateUserData = (user, name) => {
-        updateProfile(user, {
-          displayName: name
-        })
-        .then(() => {
-          console.log('user name updated')
-        })
-        .catch(error => {
-          setRegisterError(error.message)
-        })
-      }
+    // const updateUserData = (user, name) => {
+    //   updateProfile(user, {
+    //     displayName: name
+    //   })
+    //   .then(() => {
+    //     console.log('user name updated')
+    //   })
+    //   .catch(error => {
+    //     setRegisterError(error.message)
+    //   })
+    // }
 
   }
 

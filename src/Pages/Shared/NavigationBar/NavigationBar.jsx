@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
-import { AuthContext } from '../../../Provider/AuthProvider';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import { AuthContext } from '../../../Provider/AuthProvider'; 
+import { FaUserAlt } from 'react-icons/fa';
 
 
 const NavigationBar = () => {
@@ -15,11 +15,7 @@ const NavigationBar = () => {
         navigate('/login')
     }
 
-    const renderTooltip = (props) => (
-        <Tooltip id="button-tooltip" {...props}>
-            Simple tooltip
-        </Tooltip>
-    );
+   
 
     return (
         <div>
@@ -65,15 +61,11 @@ const NavigationBar = () => {
                                 <Nav>
 
 
-                                    {/* {user && <Nav.Link><span title='Talukdar'><FaUserAlt style={{ height: "50px" }} className='text-white fs-4'></FaUserAlt></span> </Nav.Link>} */}
-                                    {user && <OverlayTrigger
-                                        placement="right"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={renderTooltip}
-                                    >
-                                        <Button variant="success">Hover me to see</Button>
-                                    </OverlayTrigger>}
-
+                                    {/* {user && <Nav.Link><span className='text-white' title='Talukdar'><FaUserAlt style={{ height: "50px" }} className='text-white fs-4'></FaUserAlt></span> </Nav.Link>} */}
+                                     
+                                        {user && <div title={user.displayName}>
+                                        <img style={{ height: "50px", width: "50px" }} src={user.photoURL} alt="" />
+                                            </div>}
 
                                     <Nav.Link>
                                         {user ?
