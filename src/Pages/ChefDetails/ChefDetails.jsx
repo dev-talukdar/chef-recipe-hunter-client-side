@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { FaHeart, FaThumbsUp } from 'react-icons/fa';
+import { FaHeart, FaRegStar, FaStar, FaThumbsUp } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import Footer from '../Shared/Footer/Footer';
+import Rating from 'react-rating';
 
 const ChefDetails = () => {
 
@@ -24,8 +25,7 @@ const ChefDetails = () => {
 
     const singleChef = useLoaderData()
 
-    const { likes, name, picture, number_recipe, recipes, years_of_experience } = singleChef;
-    console.log(singleChef)
+    const { likes, name, picture, number_recipe, recipes, years_of_experience } = singleChef; 
 
     return (
         <div>
@@ -35,7 +35,7 @@ const ChefDetails = () => {
                 <h4 className='text-center mt-5 ' >  {name}  </h4>
                 <h4 className='text-center ' >Number of Recipe: {number_recipe}</h4>
                 <h4 className='text-center ' >  {years_of_experience} Years of Experience </h4>
-                <h4 className='text-center ' > <FaThumbsUp></FaThumbsUp>  {likes} </h4>
+                <h4 className='text-center ' > <FaThumbsUp className='text-primary me-2'></FaThumbsUp>  {likes} </h4>
             </div>
 
             <div className='container'>
@@ -51,7 +51,14 @@ const ChefDetails = () => {
                                             <Card.Text>
                                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                                             </Card.Text>
-                                            <p>Rating: {recipe.rating}</p>
+                                            <Rating 
+                                            placeholderRating={recipe.rating}
+                                            readonly
+                                            emptySymbol={<FaRegStar></FaRegStar>}
+                                            placeholderSymbol={<FaStar className='text-warning'></FaStar>}
+                                            fullSymbol={<FaStar></FaStar>} 
+                                            ></Rating>
+                                            <p> {recipe.rating}</p>
                                         </Card.Body>
                                     </Card>
                                 </div>

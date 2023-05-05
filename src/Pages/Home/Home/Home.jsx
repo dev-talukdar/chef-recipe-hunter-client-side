@@ -47,7 +47,7 @@ const Home = (chef) => {
                                         <p className='m-0'>Numbers of recipes: {chef.number_recipe}</p>
                                     </div>
                                     <div>
-                                        <p className='m-0'><FaThumbsUp></FaThumbsUp>{chef.likes}</p>
+                                        <p className='m-0'><FaThumbsUp className='text-primary me-2'></FaThumbsUp>{chef.likes}</p>
                                     </div>
                                 </div>
                                 <Button variant="primary" className='w-100 fs-5'>
